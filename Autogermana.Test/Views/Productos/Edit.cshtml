@@ -1,0 +1,96 @@
+﻿@model Autogermana.Test.ViewModels.ProductoViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<br />
+<h3 class="text-center"> Editar Producto</h3>
+<form method="post" asp-action="Create">
+    <div class="row px-2 mx-2 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Producto.Idproducto"/>
+        <div class="col-10 offset-1 mt-3">
+            <div class="form-group row">
+                <div class="col-4 my-3">
+                    <label asp-for="Producto.Idcategoria"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Producto.Idcategoria, Model.ListaCategorias,
+                        "-Por favor seleccione una categoría-", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4 my-3">
+                    <label asp-for="Producto.Codigo">Código</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Producto.Codigo" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4 my-3">
+                    <label asp-for="Producto.Nombre"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Producto.Nombre" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4 my-3">
+                    <label asp-for="Producto.PrecioVenta"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Producto.PrecioVenta" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4 my-3">
+                    <label asp-for="Producto.Stock"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Producto.Stock" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4 my-3">
+                    <label asp-for="Producto.Descripcion"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Producto.Descripcion" class="form-control" />
+                </div>
+            </div>
+            @*<div class="form-group row">
+                <div class="col-4 my-3">
+                    <label asp-for="Imagen"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Imagen" class="form-control" />
+                </div>
+            </div>*@
+            <div class="form-group row">
+                <div class="col-4 my-3">
+                    <label asp-for="Producto.Estado"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Producto.Estado" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <div class="col-8 offset-4">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model.Producto.Idproducto"> Actualizar</button>
+                            &nbsp;
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success form-control">Volver a lista</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
